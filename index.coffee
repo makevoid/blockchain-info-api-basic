@@ -69,8 +69,8 @@ BchainApi =
 
 # this code gets the balance of an address and logs it to the console
 
-balance = BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY")
-console.log balance
+BchainApi.balance "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (balance) ->
+  console.log balance
 
 # this code gets the unspent outputs of the given address
 #
