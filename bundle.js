@@ -8,14 +8,17 @@ get = require('get-next');
 BchainApi = {
   unspent: function(address, handler) {
     this._getUnspentJson(address, handler);
+    return true;
   },
   _unspentUrl: function(address) {
-    return '/unspent?active=#{address}&format=json&cors=true';
+    return "/unspent?active=" + address + "&format=json&cors=true";
   },
   _getUnspentJson: function(address, handler) {
-    get(this._unspentOpts(address)).next((function(data, res) {
-      handler(JSON.parse(data));
-    }).bind(this));
+    return get(this._unspentOpts(address)).next(((function(_this) {
+      return function(data, res) {
+        return handler(JSON.parse(data));
+      };
+    })(this)));
   },
   _unspentOpts: function(address) {
     return {
@@ -28,12 +31,15 @@ BchainApi = {
   },
   balance: function(address, handler) {
     this._getBalanceJson(address, handler);
+    return true;
   },
   _getBalanceJson: function(address, handler) {
-    get(this._balanceOpts(address)).next((function(data, res) {
-      data = JSON.parse(data);
-      handler(data);
-    }).bind(this));
+    return get(this._balanceOpts(address)).next((function(_this) {
+      return function(data, res) {
+        data = JSON.parse(data);
+        return handler(data);
+      };
+    })(this));
   },
   _balanceOpts: function(address) {
     return {
@@ -45,15 +51,15 @@ BchainApi = {
     };
   },
   _balanceUrl: function(address) {
-    return '/q/addressbalance/#{address}?format=json';
+    return "/q/addressbalance/" + address + "?format=json";
   },
   _blockchainHost: function() {
     return 'blockchain.info';
   }
 };
 
-BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", function(balance) {
-  return console.log(balance);
+BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", function(bal) {
+  return console.log(bal);
 });
 
 window.BchainApi = BchainApi;

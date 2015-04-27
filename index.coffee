@@ -17,17 +17,15 @@ BchainApi =
 
   unspent: (address, handler) ->
     @_getUnspentJson address, handler
-    return
+    true
 
   _unspentUrl: (address) ->
-    '/unspent?active=#{address}&format=json&cors=true'
+    "/unspent?active=#{address}&format=json&cors=true"
 
   _getUnspentJson: (address, handler) ->
-    get(@_unspentOpts(address)).next ((data, res) ->
+    get(@_unspentOpts(address)).next ((data, res) =>
       handler JSON.parse(data)
-      return
-    ).bind(this)
-    return
+    )
 
   _unspentOpts: (address) ->
     # TODO: refactor all Opts with merge/extend
@@ -41,36 +39,35 @@ BchainApi =
 
   balance: (address, handler) ->
     @_getBalanceJson address, handler
-    return
+    true
 
   _getBalanceJson: (address, handler) ->
-    get(@_balanceOpts(address)).next ((data, res) ->
+    get(@_balanceOpts(address)).next((data, res) =>
       data = JSON.parse data
       handler data
-      return
-    ).bind(this)
-    return
+    )
 
   _balanceOpts: (address) ->
     {
       host: @_blockchainHost()
-      path: @_balanceUrl address
+      path: @_balanceUrl(address)
       type: 'all'
       port: 443
       withCredentials: false
     }
 
   _balanceUrl: (address) ->
-    '/q/addressbalance/#{address}?format=json'
+    "/q/addressbalance/#{address}?format=json"
 
   _blockchainHost: ->
     'blockchain.info'
 
 
-# this code gets the balance of an address and logs it to the console
+# # this code gets the balance of an address and logs it to the console
 
-BchainApi.balance "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (balance) ->
-  console.log balance
+BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (bal) ->
+  console.log "balance:", bal
+)
 
 # this code gets the unspent outputs of the given address
 #
@@ -80,5 +77,5 @@ BchainApi.balance "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (balance) ->
 
 
 window.BchainApi = BchainApi
-window.bitcore = bitcore
+window.bitcore   = bitcore
 # this exports the libs as global objects, it can be useful to be able to call them in your browser

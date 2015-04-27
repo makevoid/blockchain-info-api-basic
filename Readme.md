@@ -8,11 +8,11 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 
 - **balance(address, callback)**
 
-(retreives the balance of a given address) 
+(retreives the balance of a given address)
 
 - **unspent(address, callback)**
 
-(retrieves all the unspent output for a given address) 
+(retrieves all the unspent output for a given address)
 
 - **pushTx(tx_hash, callback)**
 
@@ -23,7 +23,7 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 
 ### Libraries used and useful links
 
-##### Bitcore 
+##### Bitcore
 http://bitcore.io
 
 ##### Get-Next
@@ -71,8 +71,13 @@ npm install
 browserify -t coffeeify index.js -o bundle.js
 ```
 
-or 
+or
 
 ```sh
 sh bundle.sh
 ```
+
+
+### TODO
+
+make sure inline is a good option for coffeeify - https://github.com/jnordberg/coffeeify/blob/master/index.js#L51
