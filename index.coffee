@@ -71,9 +71,9 @@ BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (bal) ->
 
 # this code gets the unspent outputs of the given address
 #
-# BchainApi.unspent("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", function(result){
-#  console.log(result) // => Object { unspent_outputs: Array[1] }
-# })
+BchainApi.unspent("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", function(result){
+ console.log(result) // => Object { unspent_outputs: Array[1] }
+})
 
 
 window.BchainApi = BchainApi
