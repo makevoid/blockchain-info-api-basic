@@ -1,5 +1,15 @@
-### Smallest setup for browserify (js frontend bundling) and coffeescript 
-##### (.coffee files are compiled via coffeeify)
+### Libraries used and useful links
+
+##### Bitcore 
+http://bitcore.io
+
+##### Get-Next
+!npm get-next
+
+#### Packaging
+
+Browserify and Coffeeify
+
 
 Browserify Website:
 http://browserify.org
@@ -10,22 +20,36 @@ https://www.npmjs.com/package/browserify
 Plugins/Forks:
 https://www.npmjs.com/search?q=browserify
 
-#### Installation
+#### Running it
+
+Download the project, cd into the dir, launch a web server like:
 
 ```sh
-npm install browserify -g
+python -m SimpleHTTPServer 3000
 ```
 
-with coffeescript support:
+open your browser ( http://localhost:3000 )
+
+
+
+
+#### Required libraries to develop on it:
 
 ```sh
 npm install browserify coffeeify -g
+npm install
+
 ```
 
+### Main task to bundle the coffee
 
-#### Usage
 
 ```sh
 browserify -t coffeeify index.js -o bundle.js
 ```
 
+or 
+
+```sh
+sh bundle.sh
+```
