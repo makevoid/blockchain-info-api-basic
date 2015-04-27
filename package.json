@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "coffeeify": "git://github.com/jnordberg/coffeeify",
+    "get-next": "0.0.3",
     "uniq": "^1.0.1"
   }
 }

@@ -7,5 +7,5 @@
 #     sh build.sh
 
 
-browserify -t coffeeify index.coffee -o build.js
+browserify -t coffeeify index.coffee -o bundle.js
 

@@ -1,7 +1,7 @@
 # libraries used (install them via npm and bundle the project via browserify)
 #
-bitcore = require('bitcore')
-get = require('get-next')
+bitcore = require 'bitcore'
+get     = require 'get-next'
 
 
 # Blockchain API class
@@ -13,14 +13,14 @@ get = require('get-next')
 
 # class BchainApi
 
-BchainApi = 
+BchainApi =
 
   unspent: (address, handler) ->
     @_getUnspentJson address, handler
     return
 
   _unspentUrl: (address) ->
-    '/unspent?active=' + address + '&format=json&cors=true'
+    '/unspent?active=#{address}&format=json&cors=true'
 
   _getUnspentJson: (address, handler) ->
     get(@_unspentOpts(address)).next ((data, res) ->
@@ -45,7 +45,7 @@ BchainApi =
 
   _getBalanceJson: (address, handler) ->
     get(@_balanceOpts(address)).next ((data, res) ->
-      data = JSON.parse(data)
+      data = JSON.parse data
       handler data
       return
     ).bind(this)
@@ -54,14 +54,14 @@ BchainApi =
   _balanceOpts: (address) ->
     {
       host: @_blockchainHost()
-      path: @_balanceUrl(address)
+      path: @_balanceUrl address
       type: 'all'
       port: 443
       withCredentials: false
     }
 
   _balanceUrl: (address) ->
-    '/q/addressbalance/' + address + '?format=json'
+    '/q/addressbalance/#{address}?format=json'
 
   _blockchainHost: ->
     'blockchain.info'
@@ -70,7 +70,7 @@ BchainApi =
 # this code gets the balance of an address and logs it to the console
 
 balance = BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY")
-console.log balance 
+console.log balance
 
 # this code gets the unspent outputs of the given address
 #
