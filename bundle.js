@@ -59,7 +59,7 @@ BchainApi = {
 };
 
 BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", function(bal) {
-  return console.log(bal);
+  return console.log("balance:", bal);
 });
 
 window.BchainApi = BchainApi;
