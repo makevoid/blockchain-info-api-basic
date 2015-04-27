@@ -1,3 +1,26 @@
+## Source Code
+
+It's all about this file:
+
+https://github.com/makevoid/blockchain-api/blob/master/index.coffee
+
+### 3 methods
+
+- balance(address, callback) 
+
+(retreives the balance of a given address) 
+
+- unspent(address, callback)
+
+(retrieves all the unspent output for a given address) 
+
+- pushTx(tx_hash, callback)
+
+(pushesh the transaction to the blockchain)
+
+( todo export it from https://github.com/makevoid/simplest_wallet_bootstrap and improve it by using multiple broadcasting channels, blockr.io, blockcypher and whatnot )
+
+
 ### Libraries used and useful links
 
 ##### Bitcore 
