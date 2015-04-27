@@ -6,15 +6,15 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 
 ### 3 methods
 
-- balance(address, callback) 
+- **balance(address, callback)**
 
 (retreives the balance of a given address) 
 
-- unspent(address, callback)
+- **unspent(address, callback)**
 
 (retrieves all the unspent output for a given address) 
 
-- pushTx(tx_hash, callback)
+- **pushTx(tx_hash, callback)**
 
 (pushesh the transaction to the blockchain)
 
