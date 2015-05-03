@@ -61,4 +61,6 @@
     }
   };
 
+  module.exports = BchainApi;
+
 }).call(this);
