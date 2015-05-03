@@ -88,5 +88,7 @@ BchainApi =
 # )
 
 
+module.exports = BchainApi
+
 # window.BchainApi = BchainApi
-# this exports the libs as global objects, it can be useful to be able to call them in your browser
+# this exports the lib(s) as global objects, it can be useful to be able to call them in your browser
