@@ -1,6 +1,6 @@
 {
-  "name": "browserify_example",
-  "version": "1.0.0",
+  "name": "blockchain-api-simple",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {

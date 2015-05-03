@@ -1,15 +1,15 @@
 # libraries used (install them via npm and bundle the project via browserify)
 #
-bitcore = require 'bitcore'
-get     = require 'get-next'
-
+# bitcore   = require 'bitcore'
+get       = require 'get-next'
+# BchainApi = require 'blockchain-api-basic'
 
 # Blockchain API class
 #   (the only external api used, can be easily swapped with blockr.io or other block explorers)
 #
 # - unspent (gets the list of the unspent outputs, utxo)
 # - balance (gets the address balance)
-#
+# - pushtx  (pushes the transaction to other nodes)
 
 # class BchainApi
 
@@ -62,12 +62,17 @@ BchainApi =
   _blockchainHost: ->
     'blockchain.info'
 
+  # pushtx
+  pushtx: (transaction) ->
+    tx_hash = transaction.serialize()
+    # TODO: implement pushtx
+
 
 # # this code gets the balance of an address and logs it to the console
-
-BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (bal) ->
-  console.log "balance:", bal
-)
+#
+# BchainApi.balance("197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY", (bal) ->
+#   console.log "balance:", bal
+# )
 
 # this code gets the unspent outputs of the given address
 #
