@@ -22,8 +22,44 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 
 ( todo export it from https://github.com/makevoid/simplest_wallet_bootstrap and improve it by using multiple broadcasting channels, blockr.io, blockcypher and whatnot )
 
+### Usage
+
+In your programs require it via:
+
+```js
+BchainApi = require 'blockchain-api-basic'
+```
+
+enjoy!
 
 ---
+
+---
+
+#### Required libraries to develop on it:
+
+```sh
+npm install # installs the dependencies
+```
+
+```sh
+npm install browserify coffeeify -g # install the dev dependencies
+```
+
+### Main task to bundle the coffee
+
+
+```sh
+browserify -t coffeeify index.js -o bundle.js
+```
+
+or
+
+```sh
+sh bundle.sh
+```
+
+
 
 ### Libraries used and useful links
 
@@ -43,39 +79,6 @@ https://www.npmjs.com/package/browserify
 Plugins/Forks:
 https://www.npmjs.com/search?q=browserify
 
-#### Running it
-
-Download the project, cd into the dir, launch a web server like:
-
-```sh
-python -m SimpleHTTPServer 3000
-```
-
-open your browser ( http://localhost:3000 )
-
-
-
-
-#### Required libraries to develop on it:
-
-```sh
-npm install browserify coffeeify -g
-npm install
-
-```
-
-### Main task to bundle the coffee
-
-
-```sh
-browserify -t coffeeify index.js -o bundle.js
-```
-
-or
-
-```sh
-sh bundle.sh
-```
 
 
 ### TODO
