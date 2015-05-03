@@ -1,12 +1,41 @@
 <html>
   <head>
-    <title>browserify example</title>
+    <title>Blockchain-api-basic example</title>
   </head>
   <body>
-    browserify example
+    <h3>Blockchain-API-basic</h3>
+    <h5>Example usage:</h5>
 
-    <div id="output"></div>
+    <div>
+      <p>
+        Balance of address:
+        <span class="address"></span>
+      </p>
+      <p>
+        <span id="output"></span> satoshi
+      </p>
+    </div>
+
+    <h4>Source:</h4>
+    <pre>
+      var address = "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY"
+      document.querySelector(".address").innerHTML = address
+
+      BchainApi.balance(address, function(bal) {
+        console.log("balance:", bal)
+        document.querySelector("#output").innerHTML = bal
+      })
+    </pre>
 
     <script type="text/javascript" src="./bundle.js"></script>
+    <script charset="utf-8">
+      var address = "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY"
+      document.querySelector(".address").innerHTML = address
+
+      BchainApi.balance(address, function(bal) {
+        console.log("balance:", bal)
+        document.querySelector("#output").innerHTML = bal
+      })
+    </script>
   </body>
 </html>

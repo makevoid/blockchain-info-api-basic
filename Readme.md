@@ -27,7 +27,7 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 In your programs require it via:
 
 ```js
-BchainApi = require 'blockchain-api-basic'
+var BchainApi = require 'blockchain-api-basic'
 ```
 
 enjoy!
