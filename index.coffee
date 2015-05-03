@@ -18,7 +18,7 @@ get       = require 'get-next'
 # - balance (gets the address balance)
 # - pushtx  (pushes the transaction to other nodes)
 
-# class BchainApi # TODO: coffee class + @methods (class methods)ti 
+# class BchainApi # TODO: coffee class + @methods (class methods)ti
 
 BchainApi =
 
@@ -88,6 +88,5 @@ BchainApi =
 # )
 
 
-window.BchainApi = BchainApi
-window.bitcore   = bitcore
+# window.BchainApi = BchainApi
 # this exports the libs as global objects, it can be useful to be able to call them in your browser
