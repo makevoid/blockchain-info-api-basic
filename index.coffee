@@ -1,8 +1,15 @@
-# libraries used (install them via npm and bundle the project via browserify)
+# To require this library in your js projects:
+#
+# BchainApi = require 'blockchain-api-basic'
+
+# A good library to start a wallet with:
 #
 # bitcore   = require 'bitcore'
+
+# libraries used (dependencies)
+#
 get       = require 'get-next'
-# BchainApi = require 'blockchain-api-basic'
+
 
 # Blockchain API class
 #   (the only external api used, can be easily swapped with blockr.io or other block explorers)
@@ -11,7 +18,7 @@ get       = require 'get-next'
 # - balance (gets the address balance)
 # - pushtx  (pushes the transaction to other nodes)
 
-# class BchainApi
+# class BchainApi # TODO: coffee class + @methods (class methods)ti 
 
 BchainApi =
 
