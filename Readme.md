@@ -27,7 +27,7 @@ It's all about this file:
 In your programs require it via:
 
 ```js
-var BchainApi = require 'blockchain-api-basic'
+var BchainApi = require('blockchain-api-basic')
 ```
 
 enjoy!
