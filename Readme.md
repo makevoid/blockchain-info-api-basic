@@ -4,7 +4,7 @@ Simple API around Blockchain.info to: **get address balance, get UTXOs, and push
 
 It's all about this file:
 
-https://github.com/makevoid/blockchain-api/blob/master/index.coffee
+<https://github.com/makevoid/blockchain-api/blob/master/index.coffee>
 
 ### 3 methods
 
@@ -31,6 +31,11 @@ var BchainApi = require 'blockchain-api-basic'
 ```
 
 enjoy!
+
+
+### Demo
+
+<http://makevoid.github.io/blockchain-api-basic>
 
 ---
 
