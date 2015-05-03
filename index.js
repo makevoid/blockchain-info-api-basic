@@ -61,8 +61,4 @@
     }
   };
 
-  window.BchainApi = BchainApi;
-
-  window.bitcore = bitcore;
-
 }).call(this);

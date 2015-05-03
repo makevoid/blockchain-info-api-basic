@@ -60,10 +60,6 @@ BchainApi = {
   }
 };
 
-window.BchainApi = BchainApi;
-
-window.bitcore = bitcore;
-
 
 
 },{"get-next":2}],2:[function(require,module,exports){
