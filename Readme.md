@@ -1,3 +1,5 @@
+Simple API around Blockchain.info to: **get address balance, get UTXOs, and push transactions.**
+
 ## Source Code
 
 It's all about this file:
@@ -21,10 +23,9 @@ https://github.com/makevoid/blockchain-api/blob/master/index.coffee
 ( todo export it from https://github.com/makevoid/simplest_wallet_bootstrap and improve it by using multiple broadcasting channels, blockr.io, blockcypher and whatnot )
 
 
-### Libraries used and useful links
+---
 
-##### Bitcore
-http://bitcore.io
+### Libraries used and useful links
 
 ##### Get-Next
 !npm get-next
@@ -32,7 +33,6 @@ http://bitcore.io
 #### Packaging
 
 Browserify and Coffeeify
-
 
 Browserify Website:
 http://browserify.org
