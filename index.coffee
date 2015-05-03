@@ -66,6 +66,7 @@ BchainApi =
   _balanceUrl: (address) ->
     "/q/addressbalance/#{address}?format=json"
 
+  # common host
   _blockchainHost: ->
     'blockchain.info'
 
@@ -73,6 +74,56 @@ BchainApi =
   pushtx: (transaction) ->
     tx_hash = transaction.serialize()
     # TODO: implement pushtx
+
+
+  # pushTx: function(tx_hash, handler) {
+  #   this._postTxJson(
+  #     tx_hash,
+  #     handler
+  #   )
+  # },
+  #
+  # _postTxJson: function(tx_hash, handle) {
+  #   console.log("pushing transaction:", tx_hash)
+  #   var consl = console
+  #   // var host  = "localhost:3001" // TODO: prod version needs to go on wallet_cors.mkvd.net
+  #   // var url   = 'http://' + host + this._pushTxUrl()
+  #
+  #   var url   = 'https://' + this._blockchainHost() + this._pushTxUrl()
+  #
+  #
+  #   $.post(url, { tx: tx_hash }, function(data) {
+  #     console.log(data.responseText)
+  #   }).fail(function(jqxhr, textStatus, error) {
+  #     console.error(
+  #       jqxhr.responseText, error
+  #     )
+  #   })
+  #
+  #   // return;
+  #   //
+  #   // // { tx: tx_hash },
+  #   // // var url = "https://btc.blockr.io/api/v1/tx/push"
+  #   // // { hex: tx_hash },
+  #   // post(
+  #   //   url,
+  #   //   { tx: tx_hash },
+  #   //   function(err, data){   //callback
+  #   //     if (err) {
+  #   //       console.error(err)
+  #   //     }
+  #   //     handle(data);
+  #   //   }
+  #   // )
+  # },
+  #
+  # _pushTxUrl: function(address) {
+  #   // return "/address/"+address+"?format=json"
+  #   return "/pushtx?cors=true" // format=json&
+  # },
+  #
+  # // https://blockchain.info/pushtx
+  # // { tx: "{}" }
 
 
 # # this code gets the balance of an address and logs it to the console
