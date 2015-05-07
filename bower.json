@@ -1,0 +1,30 @@
+{
+  "name": "blockchain-api-basic",
+  "main": "index.js",
+  "version": "0.2.3",
+  "homepage": "https://github.com/makevoid/blockchain-api-basic",
+  "authors": [
+    "Francesco Canessa <makevoid@gmail.com>"
+  ],
+  "description": "Simple API around Blockchain.info to: get address balance, get UTXOs, and push transactions.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "blockchain",
+    "bitcoin",
+    "blockchain.info",
+    "api",
+    "chain"
+  ],
+  "license": "The Unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
