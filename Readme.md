@@ -16,7 +16,15 @@ It's all about this file:
 
 (retrieves all the unspent output for a given address)
 
-- **pushTx(tx_hash, callback)**
+- **pushTx(tx_hash, callback, op_return)**
+- 
+
+# How the transaction looks like
+
+It's storage! Blockchain DB!
+
+OP_RETURN (80 bytes)aishdpashdpoasjpdoajspodjapsdjp timestamp + address 
+
 
 (pushesh the transaction to the blockchain)
 
