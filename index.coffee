@@ -23,6 +23,7 @@ get       = require 'get-next'
 BchainApi =
 
   unspent: (address, handler) ->
+    console.error "handler not specified" unless handler
     @_getUnspentJson address, handler
     true
 
@@ -30,8 +31,12 @@ BchainApi =
     "/unspent?active=#{address}&format=json&cors=true"
 
   _getUnspentJson: (address, handler) ->
+    handler = console.log unless handler
     get(@_unspentOpts(address)).next ((data, res) =>
-      handler JSON.parse(data)
+      if data == "No free outputs to spend"
+        handler error: "no_utxo_to_spend"
+      else
+        handler JSON.parse data
     )
 
   _unspentOpts: (address) ->
