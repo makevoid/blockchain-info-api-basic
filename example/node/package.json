@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "blockchain-api-basic": "github:makevoid/blockchain-info-api-basic"
+  }
+}
