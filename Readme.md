@@ -1,99 +1,54 @@
 Simple API around Blockchain.info to: **get address balance, get UTXOs, and push transactions.**
 
-## Source Code
+### Install
 
-It's all about this file:
-
-<https://github.com/makevoid/blockchain-api/blob/master/index.coffee>
-
-### 3 methods
-
-- **balance(address, callback)**
-
-(retreives the balance of a given address)
-
-- **unspent(address, callback)**
-
-(retrieves all the unspent output for a given address)
-
-- **pushTx(tx_hash, callback, op_return)**
-- 
-
-# How the transaction looks like
-
-It's storage! Blockchain DB!
-
-OP_RETURN (80 bytes)aishdpashdpoasjpdoajspodjapsdjp timestamp + address 
-
-
-(pushesh the transaction to the blockchain)
-
-( todo export it from https://github.com/makevoid/simplest_wallet_bootstrap and improve it by using multiple broadcasting channels, blockr.io, blockcypher and whatnot )
+    npm i --save blockchain-info-api-basic
 
 ### Usage
 
-In your programs require it via:
+Require the api:
 
 ```js
-var BchainApi = require('blockchain-api-basic')
+const bcApi   = require('blockchain-info-api-basic')
+const balance = bcApi.balance
+const utxos   = bcApi.utxos
+const pushTx  = bcApi.pushTx
 ```
 
-enjoy!
+- **balance(address)**
 
+Retreives the balance of a given address
 
-### Demo
+```js
+;(async () => {
+  const bal = await balance(address)
+  console.log("balance:", bal)
+  // => balance: 9754600 (satoshis)
+})()
+```
 
-<http://makevoid.github.io/blockchain-api-basic>
+- **utxos(address)**
+
+Retrieves all the unspent transaction outputs for a given address:
+
+```js
+const outputs = await utxos(address)
+console.log("UTXOs:", outputs)
+// => UTXOs: [ { tx_hash: ... }, {...} ]
+```
+
+(note I'm omitting async from this example)
+
+- **pushTx(tx_hash)**
+
+```js
+const rawTX = "...." // your raw tx - for example you can create a transaction by using bitcoinjslib or bitcore and then serialize the transaction to get the raw tx in hex format
+const response = await pushtx(rawTX)
+console.log("push tx response:", response)
+```
 
 ---
 
----
+Enjoy!
 
-#### Required libraries to develop on it:
-
-```sh
-npm install # installs the dependencies
-```
-
-```sh
-npm install browserify coffeeify -g # install the dev dependencies
-```
-
-### Main task to bundle the coffee
-
-
-```sh
-browserify -t coffeeify index.js -o bundle.js
-```
-
-or
-
-```sh
-sh bundle.sh
-```
-
-
-
-### Libraries used and useful links
-
-##### Get-Next
-!npm get-next
-
-#### Packaging
-
-Browserify and Coffeeify
-
-Browserify Website:
-http://browserify.org
-
-Npm module page:
-https://www.npmjs.com/package/browserify
-
-Plugins/Forks:
-https://www.npmjs.com/search?q=browserify
-
-
-
-### TODO
-
-make sure inline is a good option for coffeeify - https://github.com/jnordberg/coffeeify/blob/master/index.js#L51
+@makevoid
