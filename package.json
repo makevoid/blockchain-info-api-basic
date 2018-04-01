@@ -4,19 +4,14 @@
   "description": "Simple API around Blockchain.info to: get address balance, get UTXOs, and push transactions.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "get-next": "0.0.3",
-    "uniq": "^1.0.1"
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-form-data": "^1.0.0"
   },
   "devDependencies": {
-    "coffeeify": "git://github.com/jnordberg/coffeeify",
-    "coffee-script": "~1.9.2"
-  },
-  "scripts": {
-    "prepublish": "coffee -o . -c index.coffee"
+    "browserify": "^16.1.1"
   }
 }

@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Blockchain-api-basic browser example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h3 class="title">Blockchain-API-basic</h3>
+          <h5 class="subtitle">Example usage</h5>
+
+        </div>
+      </div>
+    </section>
+    <div style="height: 10px"></div>
+
+    <section class="container">
+      <div class="card">
+        <div class="card-content">
+          <h1 class="title is-4">Get the balance of an address</h1>
+          <p>
+            <strong>BTC Address:</strong>
+            <span class="address"></span>
+          </p>
+          <div style="height: 15px"></div>
+          <h5 class="subtitle is-4">
+            <span id="output">loading...</span> satoshis
+          </h5>
+        </div>
+      </div>
+      <div style="height: 50px"></div>
+
+      <h4 class="title is-5">Source:</h4>
+      <pre>
+        <code>
+          var address = "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY"
+          document.querySelector(".address").innerHTML = address
+
+          ;(async () => {
+            const balance = await BchainApi.balance(address)
+            console.log("balance:", balance)
+            document.querySelector("#output").innerHTML = balance
+          })()
+        </code>
+      </pre>
+    </section>
+
+
+    <script type="text/javascript" src="../../bundle.js"></script>
+    <script charset="utf-8" type="text/javascript">
+      var address = "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY"
+      document.querySelector(".address").innerHTML = address
+
+      ;(async () => {
+        const balance = await BchainApi.balance(address)
+        console.log("balance:", balance)
+        document.querySelector("#output").innerHTML = balance
+      })()
+    </script>
+  </body>
+</html>

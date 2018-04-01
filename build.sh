@@ -6,5 +6,4 @@
 #
 #     sh build.sh
 
-
-browserify -t coffeeify index.coffee --standalone BchainApi -o bundle.js
+npx browserify index.js --standalone BchainApi -o bundle.js
