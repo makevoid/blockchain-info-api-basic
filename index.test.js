@@ -18,7 +18,7 @@ describe('blockchain-info-api', () => {
   })
 
   // This needs to be mocked
-  test('pushTx', async () => {
+  xtest('pushTx', async () => {
     const rawTx = "123"
     const resp = await api.pushTx(rawTx)
     expect(resp).toBe("ok")
