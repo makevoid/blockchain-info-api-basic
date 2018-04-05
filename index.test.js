@@ -17,6 +17,17 @@ describe('blockchain-info-api', () => {
     expect(txHash).toBe(txHash)
   })
 
+  test('utxos can be empty', async () => {
+    const utxos = await api.utxos("39Aa1M8a7qMkbzuPBpQ7AtvGAfjruBLMoV")
+    expect(utxos).toEqual([])
+  })
+
+  test('utxos fails with an invalid address', async () => {
+    expect(
+      api.utxos("1antani")
+    ).rejects.toEqual(new Error('Bitcoin address is not valid - address: 1antani'))
+  })
+
   // This needs to be mocked
   xtest('pushTx', async () => {
     const rawTx = "123"

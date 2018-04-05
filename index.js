@@ -1,7 +1,5 @@
-require('es6-promise').polyfill()
 require('isomorphic-fetch')
 require('isomorphic-form-data')
-
 
 // Blockchain.info simple API for clientside bitcoin apps/wallets
 //
@@ -9,10 +7,15 @@ require('isomorphic-form-data')
 // - balance (gets the address balance)
 // - pushtx  (pushes the transaction to other nodes)
 
-
 const get = async (url) => {
-  let data = await fetch(url)
-  data = await data.json()
+  const reponse = await fetch(url)
+  const text = await reponse.text()
+  let data
+  try {
+    data = JSON.parse(text)
+  } catch (err) {
+    data = text
+  }
   return data
 }
 
@@ -37,6 +40,8 @@ const post = async (url, params) => {
 const unspentTxOutputs = async (address) => {
   const url  = _unspentUrl(address)
   const data = await get(url)
+  if (data == "No free outputs to spend") return []
+  if (data == "Invalid Bitcoin Address")  throw Error(`Bitcoin address is not valid - address: ${address}`)
   return data.unspent_outputs
 }
 
