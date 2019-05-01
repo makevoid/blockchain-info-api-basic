@@ -1,6 +1,6 @@
 {
   "name": "blockchain-api-basic",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Simple API around Blockchain.info to: get address balance, get UTXOs, and push transactions.",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "isomorphic-form-data": "^1.0.0",
-    "jest": "^22.4.3"
+    "isomorphic-form-data": "^2.0.0",
+    "jest": "^24.7.1"
   },
   "devDependencies": {
     "browserify": "^16.1.1"
