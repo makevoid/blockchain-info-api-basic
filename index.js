@@ -1,11 +1,11 @@
 require('isomorphic-fetch')
-require('isomorphic-form-data')
+const qs = require('querystring')
 
-// Blockchain.info simple API for clientside bitcoin apps/wallets
+// Blockchain.info simple API for nodejs or clientside bitcoin apps/wallets
 //
 // - unspent (gets the list of the unspent outputs, utxo)
 // - balance (gets the address balance)
-// - pushtx  (pushes the transaction to other nodes)
+// - pushTx  (pushes the transaction to the network nodes)
 
 const get = async (url) => {
   const reponse = await fetch(url)
@@ -28,7 +28,10 @@ const getNum = async (url) => {
 const post = async (url, params) => {
   const attribs = {
     method: "POST",
-    body:   new FormData(params),
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: qs.stringify(params),
   }
   let data = await fetch(url, attribs)
   data = await data.text()
@@ -62,21 +65,23 @@ const _balanceUrl = (address) => {
   return `${_blockchainHost()}/q/addressbalance/${address}?format=json`
 }
 
-// API host
-const _blockchainHost = () => {
-  return 'https://blockchain.info'
-}
+// push raw Transaction
 
-// push raw transaction
-const pushTx = async (rawTX) => {
-  const url = _pushTx()
-  const data = { tx: rawTX }
-  const resp = await post(url, data)
+const pushTx = async (txHex) => {
+  const url = 'https://blockchain.info/pushtx'
+  const resp = await post(url, {
+    tx: txHex,
+  })
   return resp
 }
 
 const _pushTx = () => {
   return `${_blockchainHost()}/pushtx`
+}
+
+// API host
+const _blockchainHost = () => {
+  return 'https://blockchain.info'
 }
 
 module.exports = {

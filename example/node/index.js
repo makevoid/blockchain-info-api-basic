@@ -1,8 +1,8 @@
-const getBalance = require('blockchain-api-basic').balance
+const { balance } = require('blockchain-api-basic')
 
 const address = "197GxXSqqSAkhLXyy9XrtEySvssuDcQGMY"
 
 ;(async () => {
-  const balance = await getBalance(address)
-  console.log("balance:", balance)
+  const bal = await balance(address)
+  console.log("balance:", bal)
 })()
