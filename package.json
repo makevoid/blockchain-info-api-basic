@@ -1,6 +1,6 @@
 {
   "name": "blockchain-api-basic",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Simple API around Blockchain.info to: get address balance, get UTXOs, and push transactions.",
   "main": "index.js",
   "scripts": {
