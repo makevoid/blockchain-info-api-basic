@@ -2,14 +2,14 @@ Simple API around Blockchain.info to: **get address balance, get UTXOs, and push
 
 ### Install
 
-    npm i --save blockchain-info-api-basic
+    npm i --save blockchain-api-basic
 
 ### Usage
 
 Require the api:
 
 ```js
-const bcApi   = require('blockchain-info-api-basic')
+const bcApi   = require('blockchain-api-basic')
 const balance = bcApi.balance
 const utxos   = bcApi.utxos
 const pushTx  = bcApi.pushTx
