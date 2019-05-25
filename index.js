@@ -48,9 +48,9 @@ const unspentTxOutputs = async (address) => {
   return data.unspent_outputs
 }
 
-const _unspentUrl = (address) => {
-  return `${_blockchainHost()}/unspent?active=${address}&format=json&cors=true`
-}
+const _unspentUrl = (address) => (
+  `${_blockchainHost()}/unspent?active=${address}&format=json&cors=true`
+)
 
 
 // get address Balance
@@ -61,28 +61,28 @@ const balance = async (address) => {
   return data
 }
 
-const _balanceUrl = (address) => {
-  return `${_blockchainHost()}/q/addressbalance/${address}?format=json`
-}
+const _balanceUrl = (address) => (
+  `${_blockchainHost()}/q/addressbalance/${address}?format=json`
+)
 
 // push raw Transaction
 
 const pushTx = async (txHex) => {
-  const url = 'https://blockchain.info/pushtx'
+  const url = `${_blockchainHost()}/pushtx`
   const resp = await post(url, {
     tx: txHex,
   })
   return resp
 }
 
-const _pushTx = () => {
-  return `${_blockchainHost()}/pushtx`
-}
+const _pushTx = () => (
+  `${_blockchainHost()}/pushtx`
+)
 
 // API host
-const _blockchainHost = () => {
-  return 'https://blockchain.info'
-}
+const _blockchainHost = () => (
+  'https://blockchain.info'
+)
 
 module.exports = {
   balance:  balance,
