@@ -4,6 +4,8 @@
 #
 # then you can use:
 #
-#     sh build.sh
+#     ./build.sh
+
+set -xe
 
 npx browserify index.js --standalone BchainApi -o bundle.js
