@@ -1,5 +1,4 @@
 require('isomorphic-fetch')
-const qs = require('querystring')
 
 // Blockchain.info simple API for nodejs or clientside bitcoin apps/wallets
 //
@@ -31,7 +30,7 @@ const post = async (url, params) => {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: qs.stringify(params),
+    body: new URLSearchParams(params).toString(),
   }
   let data = await fetch(url, attribs)
   data = await data.text()
@@ -44,7 +43,7 @@ const unspentTxOutputs = async (address) => {
   const url  = _unspentUrl(address)
   const data = await get(url)
   if (data == "No free outputs to spend") return []
-  if (data == "Invalid Bitcoin Address")  throw Error(`Bitcoin address is not valid - address: ${address}`)
+  if (data == "Invalid Bitcoin Address" || data?.error === "user-error")  throw Error(`Bitcoin address is not valid - address: ${address}`)
   return data.unspent_outputs
 }
 

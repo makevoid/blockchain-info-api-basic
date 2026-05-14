@@ -23,7 +23,7 @@ describe('blockchain-info-api', () => {
   })
 
   test('utxos fails with an invalid address', async () => {
-    expect(
+    await expect(
       api.utxos("1antani")
     ).rejects.toEqual(new Error('Bitcoin address is not valid - address: 1antani'))
   })
